@@ -7,16 +7,16 @@ import java.util.ArrayList;
 public class objectIO {
 
 
-    public static ArrayList<modelKit> load(String filePath, int numberOfObjects){
+    public static ArrayList<Object> load(String filePath, int numberOfObjects){
 
-        ArrayList<modelKit> collection = new ArrayList<>();
+        ArrayList<Object> collection = new ArrayList<>();
 
         try  {
             FileInputStream fileInputStream = new FileInputStream(filePath);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 
             for (int i = 0; i < numberOfObjects; i++) {
-                modelKit temp = (modelKit) objectInputStream.readObject();
+                Object temp = objectInputStream.readObject();
                 collection.add(temp);
             }
 
@@ -30,15 +30,15 @@ public class objectIO {
 
     }
 
-    public static void save(String filePath, ArrayList<modelKit> collection){
+    public static void save(String filePath, ArrayList<Object> collection){
         //Saving Objects to file
         try {
             FileOutputStream fos = new FileOutputStream(filePath);
             ObjectOutputStream objectOut = new ObjectOutputStream(fos);
-            for (modelKit thisKit : collection
+            for (Object thisThing : collection
             ) {
 
-                objectOut.writeObject(thisKit);
+                objectOut.writeObject(thisThing);
 
 
             }

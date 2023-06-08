@@ -6,18 +6,17 @@ public class Main {
 
         final String filePath = "H:\\~CS20\\cs20-file-example\\files-using-serial\\src\\savedObjects.txt";
 
-        ArrayList<modelKit> collection = new ArrayList<>();
+        ArrayList<Object> collection = new ArrayList<>();
 
-        //Loads collection with n objects from file
+        //Loading Objects from file
         collection = objectIO.load(filePath,2);
 
 
-        for (modelKit t: collection
+        for (Object t: collection
              ) {
-            System.out.println(t.toString());
+            System.out.println(((modelKit) t).toString());
         }
 
-        //Saves collection to file.
         objectIO.save(filePath, collection);
 
     }
